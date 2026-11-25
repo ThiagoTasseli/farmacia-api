@@ -1,5 +1,11 @@
 
-# 💊 Projeto Final - Bloco 02 | API FARMACIA
+# 💊 Farmácia — API REST
+
+![Java](https://img.shields.io/badge/Java-17-orange?style=flat-square&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4-6DB33F?style=flat-square&logo=springboot)
+![JWT](https://img.shields.io/badge/Auth-JWT-black?style=flat-square&logo=jsonwebtokens)
+
+🖥️ **Front-end:** [farmacia-web](https://github.com/ThiagoTasseli/farmacia-web)
 
 🔗 **Link de Teste da API:**  [https://projeto-final-bloco-02-7l9p.onrender.com](https://projeto-final-bloco-02-7l9p.onrender.com)
 
@@ -44,7 +50,8 @@ Este projeto é um sistema de **comércio eletrônico de uma farmácia**, desenv
 - **Spring Data JPA**  
 - **Spring Security**  
 - **JWT (Json Web Token)**  
-- **MySQL / H2 (para testes)**
+- **MySQL** (desenvolvimento) / **PostgreSQL** (produção)
+- **SpringDoc (Swagger)**
 - **Insomnia/Postman** (testes de API)
 
 ---
@@ -55,6 +62,23 @@ O projeto possui o seguinte relacionamento entre as entidades:
 
 - Uma **Categoria** pode conter **muitos Produtos** (OneToMany)  
 - Cada **Produto** pertence a uma única **Categoria** (ManyToOne)
+
+---
+
+## ▶️ Como rodar localmente
+
+```bash
+git clone https://github.com/ThiagoTasseli/farmacia-api.git
+cd farmacia-api
+
+# Perfil dev usa MySQL local (db_farmacia, criado automaticamente)
+export DB_PASSWORD=sua_senha_mysql
+export JWT_SECRET=$(openssl rand -base64 32)   # opcional em dev
+
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+Em produção (perfil `prod`), configure `POSTGRESHOST`, `POSTGRESPORT`, `POSTGRESDATABASE`, `POSTGRESUSER`, `POSTGRESPASSWORD` e `JWT_SECRET`.
 
 ---
 
@@ -85,6 +109,6 @@ Para acessar as rotas protegidas:
 
 ## 📬 Contato
 
-Desenvolvido por [**Thiago Tasseli**](https://github.com/tasselii)
+Desenvolvido por [**Thiago Tasseli**](https://github.com/ThiagoTasseli)
 
 Fique à vontade para tirar dúvidas, dar sugestões ou contribuir! 😄
